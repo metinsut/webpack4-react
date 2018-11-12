@@ -1,0 +1,13 @@
+@mixin font-face($family) {
+   $filepath: "../fonts/" + $family;
+   @font-face {
+      font-family: "#{$family}";
+      src: url($filepath+".ttf") format("truetype");
+   }
+}
+
+@include font-face("mali");
+
+@mixin mali {
+   font-family: "mali", arial, helvetica, sans-serif;
+}

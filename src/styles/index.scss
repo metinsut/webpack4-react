@@ -1,0 +1,40 @@
+@import "./config/fonts";
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+   @include mali;
+}
+
+h1 {
+   color: #2d8fba;
+}
+
+.image {
+   width: 200px;
+   height: 200px;
+   object-fit: cover;
+   background: url("../images/cat.jpg");
+   background-position: center;
+   background-size: 100%;
+   color:white;
+}
+
+.image1 {
+   width: 200px;
+   height: 200px;
+   object-fit: cover;
+   background: url("../images/one/one.png");
+   background-position: center;
+   background-size: 100%;
+}
+
+.cat {
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+}
