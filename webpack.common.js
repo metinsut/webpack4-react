@@ -2,8 +2,7 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
    context: path.resolve(__dirname, ""),
@@ -18,23 +17,13 @@ module.exports = {
       new CleanWebpackPlugin(["build"]),
       new HtmlWebpackPlugin({
          template: "src/index.html",
-         favicon: "src/images/favicon.ico",
-         minify: {
-            removeComments: true,
-            collapseWhitespace: true,
-            removeAttributeQuotes: true
-         },
-         chunksSortMode: "dependency"
+         favicon: "src/images/favicon.ico"
       }),
       new MiniCssExtractPlugin({
          filename: "assets/css/main.css"
-      })
+      }),
+      new CopyWebpackPlugin([{ from: "src/data", to: "assets/data" }])
    ],
-   devServer: {
-      contentBase: path.join(__dirname, "build"),
-      compress: true,
-      port: 3000
-   },
    module: {
       rules: [
          {
